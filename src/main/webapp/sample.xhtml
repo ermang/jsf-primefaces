@@ -13,10 +13,21 @@
 <body>
 this is sample lolololo
 <h:form>
+    <p:messages id="msgs"/>
+
     <p>#{sample.val1}#{sample.val2}</p>
-    <p:inputText id="float-input" value="#{lolo}"/>
-    <p:commandButton type="submit" action="#{sample.addProduct}" value="Submit" update="mytable"/>
-    <h:commandLink value="Go to next page" action="#{sample.addProduct}" />
+    <h:outputLabel for="param1" value="param1"/>
+    <p:inputText id="param1" name="param1" value="#{sample.param.param1}" required="true" label="param1in_labeli">
+        <f:validateLength minimum="2"/>
+    </p:inputText>
+    <p:message for="param1" display="icon"/>
+
+    <br/>
+
+    <h:outputLabel for="param2" value="param2"/>
+    <p:inputText id="param2" name="param2" value="#{sample.param.param2}" />
+    <p:commandButton type="submit" action="#{sample.search}" value="Search" update="@form"/>
+    <h:commandLink value="Go to next page" action="#{sample.search}" />
 
     <p:dataTable id="mytable" var="product" value="#{sample.products}">
         <p:column headerText="Name">

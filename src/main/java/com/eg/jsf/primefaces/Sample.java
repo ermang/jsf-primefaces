@@ -13,27 +13,23 @@ public class Sample {
 
     private String val1= "val1";
     private String val2= "val2";
-    private List<Product>  products = new ArrayList();
+    private List<Product>  products;
+    private String myInput;
+    private Param param;
 
     public Sample() {
         System.out.println("Sample constructor");
-//        this.products = new ArrayList<Product>();
-//        Product p = new Product();
-//        p.setName("p17");
-//        p.setQuantity(17);
-//        products.add(p);
+        this.products = new ArrayList<Product>();
+        this.param = new Param();
     }
 
-    public void addProduct() {
-        System.out.println("Sample.addProduct called");
-        Product p = new Product();
-        p.setName("p1");
-        p.setQuantity(1);
-        Product p2 = new Product();
-        p2.setName("p2");
-        p2.setQuantity(2);
-        products.add(p);
-        products.add(p2);
+    public void search() {
+        System.out.println("Sample search called");
+        System.out.println("this.param=" + this.param);
+        System.out.println("hebele");
+        System.out.println("this.param.getParam2() is null");
+        System.out.print(this.param.getParam2() == null);
+        this.products = sampleService.search();
     }
 
     public List<Product> getProducts() {
@@ -46,5 +42,21 @@ public class Sample {
 
     public String getVal2() {
         return val2;
+    }
+
+    public String getMyInput() {
+        return myInput;
+    }
+
+    public void setMyInput(String myInput) {
+        this.myInput = myInput;
+    }
+
+    public Param getParam() {
+        return param;
+    }
+
+    public void setParam(Param param) {
+        this.param = param;
     }
 }
